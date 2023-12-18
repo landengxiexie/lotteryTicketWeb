@@ -75,24 +75,24 @@
 <script>
     $(document).ready(function () {
         $('#myButton').click(function () {
-            var selectElement1 = document.getElementById('lts-number');
-            var selectElement2 = document.getElementById('tbts-number');
-            var s1 = selectElement1.options[selectElement1.selectedIndex].value;
-            var s2 = selectElement1.options[selectElement2.selectedIndex].value;
+            let selectElement1 = document.getElementById('lts-number');
+            let selectElement2 = document.getElementById('tbts-number');
+            let s1 = selectElement1.options[selectElement1.selectedIndex].value;
+            let s2 = selectElement1.options[selectElement2.selectedIndex].value;
             $.ajax({
                 url: 'http://8.140.254.247:9527/api/v1/pub/ticket/getTicket?lts=' + s1 + "&tbts=" + s2,
                 type: 'GET',
                 dataType: 'json',
                 success: function (data) {
-                    var jsonString = '';
-                    var keyCount = 0;
+                    let jsonString = '';
+                    let keyCount = 0;
                     console.log(data);
 // 输出分割后的结果
-                    for (var key in data) {
+                    for (let key in data) {
                         if (data.hasOwnProperty(key)) {
                             keyCount++;
-                            var paragraph = document.createElement('p'); // 创建新的<p>标签
-                            var id = 'ln' + keyCount; // 生成唯一的ID
+                            let paragraph = document.createElement('p'); // 创建新的<p>标签
+                            let id = 'ln' + keyCount; // 生成唯一的ID
                             paragraph.setAttribute('id', id); // 设置标签的ID
                             paragraph.textContent = JSON.stringify(key + ": " + data[key]); // 设置标签的文本内容
                             document.body.appendChild(paragraph); // 将标签添加到文档的body中
